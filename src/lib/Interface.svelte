@@ -78,7 +78,7 @@
 </script>
 
 <div class="relative overflow-x-auto shadow-md sm:rounded-lg h-[100vw] mx-auto">
-  <Nav />
+  <Nav on:addUser={getAllUsers}/>
   <table class="w-full text-sm text-left rtl:text-right text-gray-500">
     <thead class="text-xs text-gray-700 uppercase bg-gray-50">
       <tr>
@@ -107,7 +107,7 @@
     </thead>
     <tbody>
       {#each users as user, $index (user)}
-        <Row on:openEditModal={() => openEditModal(user)}
+        <Row on:openEditModal={() => openEditModal(user)} on:DeleteUser={getAllUsers}
           name={user[1] + " " + user[2]}
           email={user[4]}
           role={user[3]}

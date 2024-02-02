@@ -8,6 +8,13 @@
   let addresses = "";
 
   let showModal = false;
+
+
+  import { createEventDispatcher } from 'svelte';
+  const dispatch = createEventDispatcher();
+
+
+ 
  
 
   function openModal() {
@@ -49,6 +56,7 @@
         return response.json();
       })
       .then((data) => {
+        dispatch('addUser');
         console.log(data); // Handle the response data as needed
         closeModal(); // Close the modal after successful submission
       })

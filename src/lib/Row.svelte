@@ -7,6 +7,7 @@
   export let status = "Active";
   export let index;
 
+  
   import { createEventDispatcher } from 'svelte';
   const dispatch = createEventDispatcher();
 
@@ -41,15 +42,14 @@
       const data = await response.json();
       console.log(data);
 
-  
+      dispatch('DeleteUser');
       return data;
     } catch (error) {
       console.error("Error fetching all users:", error.message);
     }
   }
 </script>
-
-<tr
+ <tr
   class="{index % 2 === 0
     ? 'bg-white'
     : 'bg-gray-50'} border-b hover:bg-gray-100"
@@ -116,3 +116,5 @@
     </div>
   </td>
 </tr>
+
+ 
