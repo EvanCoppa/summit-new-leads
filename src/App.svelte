@@ -4,7 +4,11 @@
 
   let auth = false;
 
-
+  function handleChildVariableUpdate(updatedValue) {
+    // This function is called when the child updates the variable
+    console.log("Received update from child:", updatedValue);
+    auth = updatedValue;
+  }
 </script>
 
 
@@ -15,7 +19,7 @@
   <Interface />
      
   {:else}
-  <!-- <LogIn /> -->
+  <!-- <LogIn  bind:authStatus={auth} on:update={handleChildVariableUpdate} /> -->
 
   {/if}
  
